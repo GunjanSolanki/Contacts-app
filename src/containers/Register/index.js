@@ -1,17 +1,18 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { register } from "../../context/actions/register";
+import React, { useContext } from "react";
+import { GlobalContext } from "../../context/Provider";
+import RegisterUI from "../../layouts/Register";
+import useForm from "./useForm";
 
 const RegisterContainer = () => {
-  useEffect(() => {
-    register();
-  }, [])
+  const { 
+    authDispatch, 
+    authState: {
+      auth: { loading, error, data },
+    },
+  } = useContext(GlobalContext)
 
   return (
-    <div>
-      <h1>Register</h1>
-      <Link to='/auth/login'>Login here</Link>
-    </div>
+    <RegisterUI form={useForm()}/>
   );
 }
 
