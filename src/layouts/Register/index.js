@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Button, Grid, Header as SemanticHeader, Segment } from "semantic-ui-react";
 import Header from "../../components/Header";
+import { Link } from "react-router-dom";
 
 const RegisterUI = ({form: { onChange, form, registerFormInValid, onSubmit, loading, fieldErrors }}) => {
   return (
@@ -87,6 +88,7 @@ const RegisterUI = ({form: { onChange, form, registerFormInValid, onSubmit, load
               >
                 Submit
               </Button>
+              <Segment>Already have an account <Link to="/auth/login">Login</Link></Segment>
             </Form>
           </Segment>
         </Grid.Column>

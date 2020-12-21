@@ -1,5 +1,5 @@
 import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS } from "../../../constants/actionTypes";
-import axiosInstance from "../../../helpers/axios";
+import axiosInstance from "../../../helpers/axiosInstance";
 
 export const login = ({
   username, 
@@ -8,7 +8,7 @@ export const login = ({
   dispatch({
     type: LOGIN_LOADING,
   });
-  axiosInstance
+  axiosInstance()
     .post("/auth/login", {
       username, 
       password
