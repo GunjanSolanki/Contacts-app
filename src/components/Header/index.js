@@ -1,11 +1,19 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { Menu, Image, Button, Icon } from "semantic-ui-react";
 import logo from "../../assets/images/logo.svg";
+import logout from "../../context/actions/auth/logout";
+import { GlobalContext } from "../../context/Provider";
 
 const Header = () => {
   const location = useLocation();
   const pathname = location.pathname;
+  const history = useHistory();
+  const { contactsState, contactsDispatch } = useContext(GlobalContext);
+
+  const handleUserLogout = () => {
+    logout(history)(contactsDispatch)
+  }
 
   return (
     <Menu secondary pointing>
@@ -25,7 +33,7 @@ const Header = () => {
       )}
       {pathname === '/' && (
       <Menu.Item>
-        <Button color="red" basic icon>
+        <Button onClick={handleUserLogout} color="red" basic icon>
           <Icon name="log out"></Icon>
           Logout
         </Button>
