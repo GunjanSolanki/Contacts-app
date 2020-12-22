@@ -25,7 +25,7 @@ const Header = () => {
       )}
       {pathname === '/' && (
       <Menu.Item>
-        <Button primary basic icon>
+        <Button color="red" basic icon>
           <Icon name="log out"></Icon>
           Logout
         </Button>

@@ -1,4 +1,5 @@
 import { REGISTER_ERROR, REGISTER_LOADING, REGISTER_SUCCESS } from "../../../constants/actionTypes";
+import { CONNECTION_ERROR } from "../../../constants/api";
 import axiosInstance from "../../../helpers/axiosInstance";
 
 export const register = ({
@@ -28,7 +29,7 @@ export const register = ({
     .catch((err) => { 
       dispatch({
         type: REGISTER_ERROR,
-        payload: err.response.data,
+        payload: err.response ? err.response.data : CONNECTION_ERROR,
       })
     });
 };
