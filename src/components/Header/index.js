@@ -32,7 +32,7 @@ const Header = () => {
         </Menu.Item>
       )}
       {pathname === '/' && (
-      <Menu.Item>
+      <Menu.Item position="right">
         <Button onClick={handleUserLogout} color="red" basic icon>
           <Icon name="log out"></Icon>
           Logout

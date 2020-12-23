@@ -6,6 +6,7 @@ const ContactsListUI = ({state: {contacts: { loading, data, error }}}) => {
   console.log("loading => ", loading);
   console.log("data => ", data);
   console.log("error => ", error);
+  
   return (
     <div>
       <Header />
@@ -28,7 +29,7 @@ const ContactsListUI = ({state: {contacts: { loading, data, error }}}) => {
 
           <List>
             {data.length && data.map((contact) => (
-              <List.Item>
+              <List.Item key={contact.id}>
                 <List.Content floated="right">
                   <span>{contact.phone_number}</span>
                 </List.Content>
